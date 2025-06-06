@@ -1,0 +1,40 @@
+extends layout.pug
+
+block content
+    .content-wrapper
+        .form-containee
+        .table-container
+            h2 Lista de Pacientes
+
+            form(action="/pacientes/nuevo" method="POST")
+                table
+                    thead
+                        tr
+                            th Nombre
+                            th Correo
+                            th Teléfono
+                            th
+                    tbody
+                        tr
+                            td: input(type="text" name="nombre" placeholder="Nombre" required)
+                            td: input(type="email" name="correo" placeholder="Correo" required)
+                            td: input(type="text" name="telefono" placeholder="Teléfono" required)
+                            td: button(type="submit") Registrar
+
+                hr
+
+                if pacientes.length
+                    table.pacientes-tabla
+                        thead
+                            tr
+                                th Nombre
+                                th Correo
+                                th Teléfono
+                        tbody
+                            each p in pacientes
+                                tr
+                                    td= p.nombre
+                                    td= p.correo
+                                    td= p.telefono
+                else
+                    p No hay pacientes registrados.

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .login-wrapper
+        .login-box
+            h1 Iniciar sesión
+            form(action="/login" method="POST")
+                .form-group
+                    label(for="usuario") Usuario:
+                    input(type="text" name="usuario" required)
+                .form-group
+                    label(for="contrasena") Contraseña:
+                    input(type="password" name="contrasena" required)
+                button.login-btn(type="submit") Entrar
+            if error
+            p.error-message= error

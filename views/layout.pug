@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title Beauty Smile
+        link(rel="stylesheet", href="/estilos.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+    body(class= session && session.usuario ? "" : "login-page")
+        if session && session.usuario
+            header.top-bar
+                .header-content
+                    .logo-container
+                        a(href="/")
+                            img.logo(src="/img/logo.png" alt="Logo Beauty Smile")
+                    nav
+                        ul.menu
+                            li: a(href="/pacientes") 🧑‍⚕️Pacientes
+                            li: a(href="/citas") 📅Citas
+                            li: a(href="/logout") 🔓Cerrar sesión
+
+        main
+            block content
+
+        if session && session.usuario
+            footer
+                p © 2025 Beauty Smile - Todos los derechos reservados

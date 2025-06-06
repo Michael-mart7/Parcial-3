@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+    .nueva-cita-container
+        h1 Nueva Cita
+
+        form(action="/citas/nueva", method="POST")
+            .form-group
+                label(for="paciente_id") Paciente:
+                select(name="paciente_id" required)
+                    each paciente in pacientes
+                        option(value=paciente.id)= paciente.nombre
+
+            .form-group
+                label(for="fecha") Fecha:
+                input(type="date", name="fecha", required)
+
+            .form-group
+                label(for="hora") Hora:
+                input(type="time", name="hora", required)
+
+            .form-group
+                label(for="servicio") Servicio:
+                input(type="text", name="servicio", required)
+
+            button.btn(type="submit") Crear Cita
