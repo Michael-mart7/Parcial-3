@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const app = express();
 
-require('dotenv').config();
+
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));

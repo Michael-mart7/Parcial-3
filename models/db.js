@@ -1,15 +1,10 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-  password: '',       // tu contraseña aquí
-    database: 'beauty_smile'
-});
-
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('Conectado a MySQL desde TablePlus');
+    host: process.env.DB_HOST,        // ejemplo: o1xyz.mysql.render.com
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 module.exports = connection;

@@ -12,17 +12,13 @@ block content
                         th Fecha
                         th Hora
                         th Servicio
-                        th Acciones
-                tbody
+                tbody 
                     each cita in citas
                         tr
-                            td= cita.paciente
+                            td= cita.nombre 
                             td= cita.fecha
                             td= cita.hora
                             td= cita.servicio
-                            td
-                        form(action=`/citas/eliminar/${cita.id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar esta cita?');")
-                            button.btn-eliminar(type="submit") Eliminar
         else
             p No hay citas agendadas.
 
